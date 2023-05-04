@@ -101,7 +101,6 @@ public class TicTacToe {
     }
 
 
-
     // humanTurn              7) нужно действие , ход игрока
     // isValidCell           11) попал ли человек или AI в ячейку ,попадание в поле впринципе
     // isEmptyCell           12) попал ли человек или AI в пустую ячейку
@@ -112,6 +111,33 @@ public class TicTacToe {
     public static void main(String[] args) {
         initField();
         printField();
+        while (true) {
+            humanTurn(); // ходит человек
+            printField(); // напечатать
+            if (checkWin(DOT_HUMAN)) {
+                System.out.println("Выйграл игрок!");
+                break;
+            }
+            if (isFieldFull()) {
+                System.out.println("Ничья");
+                break;
+            }
+
+            aiTurn();
+            printField();
+            while (true) {
+                aiTurn(); // ходит ИИ
+                printField(); // напечатать
+                if (checkWin(DOT_AI)){
+                    System.out.println("Выйграл компьютер!");
+                    break;
+            }
+                if (isFieldFull()) {
+                    System.out.println("Ничья");
+                    break;
+                }
+                }
+        }
     }
 
 
