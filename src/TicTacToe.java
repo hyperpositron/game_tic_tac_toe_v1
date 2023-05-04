@@ -77,8 +77,8 @@ public class TicTacToe {
     }
 
     private static boolean isDraw() {                //проверка на ничью
-        for (int y; y < fieldSizeY; y++) {
-            for (int x; x < fieldSizeX; x++) {
+        for (int y = 0; y < fieldSizeY; y++) {
+            for (int x = 0; x < fieldSizeX; x++) {
                 if (field[y][x] == DOT_EMPTY)         // если видим хотя бы одну пустую ячейку возвращаем false
                     return false;
             }
