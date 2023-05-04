@@ -33,6 +33,7 @@ public class TicTacToe {
             }
             System.out.println();
         }
+        System.out.println("______");
     }
 
     /* Как проверить попал ли текущтий игрок чел или AI в наше поле
