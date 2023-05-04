@@ -1,3 +1,5 @@
+import java.util.Scanner;
+
 public class TicTacToe {
     private static final char DOT_HUMAN = 'X';    // 2) Игрок №1 человек
     private static final char DOT_AI = 'O';       // 3) Игрок №2 Искусственный интеллект (Artificial intelligence)
@@ -5,6 +7,9 @@ public class TicTacToe {
     private static int fieldSizeX;                // 4) размер по оси X
     private static int fieldSizeY;                // 5) размер по оси Y
     private static char[][] field;                // 1) нужно поле
+    private static final Scanner SCANNER = new Scanner(System.in);
+    // 6) нужен для ввода в консоль (позволяет работать с консолью)
+    // что бы запросил пользовательский ввод
 
     private static void initField() {
         fieldSizeY = 3;
@@ -45,6 +50,17 @@ public class TicTacToe {
      * Если "==" вернеться "true" , если "!=" вернеться "false"*/
     private static boolean isEmptyCell(int x, int y) {
         return field[y][x] == DOT_EMPTY;
+    }
+
+    private static void humanTurn() {
+        int x;
+        int y;
+        do {
+            System.out.println("Введите координаты хода X и Y (от 1 до 3) через пробел >>>");
+            x = SCANNER.nextInt() - 1; // если буква вернет 0 или -1
+            y = SCANNER.nextInt() - 1;
+        } while (!isValidCell(x, y) || !isEmptyCell(x, y));// если не валидная ячейка ,переспрашиваем или если не пустая то тоже спросить
+        field[y][x] = DOT_HUMAN;
     }
 
     // humanTurn              7) нужно действие , ход игрока
