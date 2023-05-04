@@ -76,6 +76,16 @@ public class TicTacToe {
         field[y][x] = DOT_AI;
     }
 
+    private static boolean isDraw() {                //проверка на ничью
+        for (int y; y < fieldSizeY; y++) {
+            for (int x; x < fieldSizeX; x++) {
+                if (field[y][x] == DOT_EMPTY)         // если видим хотя бы одну пустую ячейку возвращаем false
+                    return false;
+            }
+        }
+        return true;
+    }
+
     // humanTurn              7) нужно действие , ход игрока
     // isValidCell           11) попал ли человек или AI в ячейку ,попадание в поле впринципе
     // isEmptyCell           12) попал ли человек или AI в пустую ячейку
