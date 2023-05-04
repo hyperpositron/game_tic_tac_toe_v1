@@ -1,3 +1,4 @@
+import java.util.Random;
 import java.util.Scanner;
 
 public class TicTacToe {
@@ -10,6 +11,8 @@ public class TicTacToe {
     private static final Scanner SCANNER = new Scanner(System.in);
     // 6) нужен для ввода в консоль (позволяет работать с консолью)
     // что бы запросил пользовательский ввод
+    private static final Random RANDOM = new Random(); // нужен для генерации случайных чисел
+
 
     private static void initField() {
         fieldSizeY = 3;
@@ -61,6 +64,16 @@ public class TicTacToe {
             y = SCANNER.nextInt() - 1;
         } while (!isValidCell(x, y) || !isEmptyCell(x, y));// если не валидная ячейка ,переспрашиваем или если не пустая то тоже спросить
         field[y][x] = DOT_HUMAN;
+    }
+
+    private static void aiTurn() {
+        int x;
+        int y;
+        do {
+            x = RANDOM.nextInt(fieldSizeX);
+            y = RANDOM.nextInt(fieldSizeY);
+        } while (!isValidCell(x, y) || !isEmptyCell(x, y));
+        field[y][x] = DOT_AI;
     }
 
     // humanTurn              7) нужно действие , ход игрока
