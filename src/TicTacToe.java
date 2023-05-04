@@ -86,6 +86,22 @@ public class TicTacToe {
         return true;
     }
 
+    private static boolean checkWin(char c) {
+        if (field[0][0] == c && field[0][1] == c && field[0][2] == c) return true;
+        if (field[1][0] == c && field[1][1] == c && field[1][2] == c) return true;
+        if (field[2][0] == c && field[2][1] == c && field[2][2] == c) return true;
+
+        if (field[0][0] == c && field[1][0] == c && field[2][0] == c) return true;
+        if (field[0][1] == c && field[1][1] == c && field[2][1] == c) return true;
+        if (field[0][2] == c && field[1][2] == c && field[2][2] == c) return true;
+
+        if (field[0][0] == c && field[1][2] == c && field[2][2] == c) return true;
+        if (field[0][2] == c && field[1][0] == c && field[2][0] == c) return true;
+        return false;
+    }
+
+
+
     // humanTurn              7) нужно действие , ход игрока
     // isValidCell           11) попал ли человек или AI в ячейку ,попадание в поле впринципе
     // isEmptyCell           12) попал ли человек или AI в пустую ячейку
