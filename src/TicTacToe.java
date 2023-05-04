@@ -100,16 +100,7 @@ public class TicTacToe {
         if (field[0][2] == c && field[1][0] == c && field[2][0] == c) return true;
         return false;
     }
-
-
-    // humanTurn              7) нужно действие , ход игрока
-    // isValidCell           11) попал ли человек или AI в ячейку ,попадание в поле впринципе
-    // isEmptyCell           12) попал ли человек или AI в пустую ячейку
-    // aiTurn                 8) нужно действие , ход AI
-    // checkWin (char DOT)    9) проверка выйграл или нет
-    // isDraw                10) FieldFull есть ли вообще свободные поля(Ничья),
-    // main                  13)
-    public static void main(String[] args) {
+    private static void playOneRound(){
         initField();
         printField();
         while (true) {
@@ -123,23 +114,33 @@ public class TicTacToe {
                 System.out.println("Ничья");
                 break;
             }
-
-            aiTurn();
-            printField();
-            while (true) {
-                aiTurn(); // ходит ИИ
-                printField(); // напечатать
-                if (checkWin(DOT_AI)){
-                    System.out.println("Выйграл компьютер!");
-                    break;
+            aiTurn();// ходит ИИ
+            printField();// напечатать
+            if (checkWin(DOT_AI)) {
+                System.out.println("Выйграл компьютер!");
+                break;
             }
-                if (isFieldFull()) {
-                    System.out.println("Ничья");
-                    break;
-                }
-                }
+            if (isFieldFull()) {
+                System.out.println("Ничья");
+                break;
+            }
         }
     }
 
 
+    // humanTurn              7) нужно действие , ход игрока
+    // isValidCell           11) попал ли человек или AI в ячейку ,попадание в поле впринципе
+    // isEmptyCell           12) попал ли человек или AI в пустую ячейку
+    // aiTurn                 8) нужно действие , ход AI
+    // checkWin (char DOT)    9) проверка выйграл или нет
+    // isDraw                10) FieldFull есть ли вообще свободные поля(Ничья),
+    // main                  13)
+    public static void main(String[] args) {
+       playOneRound();
+    }
 }
+
+
+
+
+
