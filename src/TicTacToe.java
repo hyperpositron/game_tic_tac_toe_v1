@@ -100,7 +100,8 @@ public class TicTacToe {
         if (field[0][2] == c && field[1][0] == c && field[2][0] == c) return true;
         return false;
     }
-    private static void playOneRound(){
+
+    private static void playOneRound() {
         initField();
         printField();
         while (true) {
@@ -136,7 +137,12 @@ public class TicTacToe {
     // isDraw                10) FieldFull есть ли вообще свободные поля(Ничья),
     // main                  13)
     public static void main(String[] args) {
-       playOneRound();
+        while (true) {
+            playOneRound();
+            System.out.println("Сыграть ещё раз?");
+            if(SCANNER.next().equals("no"))
+                break;
+        }
     }
 }
 
